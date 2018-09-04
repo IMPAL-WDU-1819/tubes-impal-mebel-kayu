@@ -1,0 +1,84 @@
+CREATE TABLE `ceo` (
+  `id_ceo` int(6) NOT NULL,
+  `nama_ceo` varchar(50) DEFAULT NULL
+) 
+
+CREATE TABLE `kayu` (
+  `id_kayu` int(6) NOT NULL,
+  `id_supplier` int(6) DEFAULT NULL,
+  `jenis_kayu` varchar(30) DEFAULT NULL,
+  `ukuran_kayu` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `mebel` (
+  `id_mebel` int(6) NOT NULL,
+  `kategori_mebel` varchar(30) DEFAULT NULL,
+  `id_pengrajin` int(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `pengrajin_kayu` (
+  `id_pengrajin` int(6) NOT NULL,
+  `id_kayu` int(6) DEFAULT NULL,
+  `nama_pengrajin` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `penjualan` (
+  `id_penjualan` int(6) NOT NULL,
+  `id_reseller` int(6) DEFAULT NULL,
+  `total_transaksi` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `reseller` (
+  `id_reseller` int(6) NOT NULL,
+  `id_mebel` int(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `supplier` (
+  `id_supplier` int(6) NOT NULL,
+  `nama_supplier` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+ALTER TABLE `ceo`
+  ADD PRIMARY KEY (`id_ceo`);
+
+ALTER TABLE `kayu`
+  ADD PRIMARY KEY (`id_kayu`),
+  ADD KEY `id_supplier` (`id_supplier`);
+
+ALTER TABLE `mebel`
+  ADD PRIMARY KEY (`id_mebel`),
+  ADD KEY `id_pengrajin` (`id_pengrajin`);
+
+ALTER TABLE `pengrajin_kayu`
+  ADD PRIMARY KEY (`id_pengrajin`),
+  ADD KEY `id_kayu` (`id_kayu`);
+
+ALTER TABLE `penjualan`
+  ADD PRIMARY KEY (`id_penjualan`),
+  ADD KEY `id_reseller` (`id_reseller`);
+
+ALTER TABLE `reseller`
+  ADD PRIMARY KEY (`id_reseller`),
+  ADD KEY `id_mebel` (`id_mebel`);
+
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`id_supplier`);
+
+
+ALTER TABLE `kayu`
+  ADD CONSTRAINT `kayu_ibfk_1` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`);
+
+ALTER TABLE `mebel`
+  ADD CONSTRAINT `mebel_ibfk_1` FOREIGN KEY (`id_pengrajin`) REFERENCES `pengrajin_kayu` (`id_pengrajin`);
+
+ALTER TABLE `pengrajin_kayu`
+  ADD CONSTRAINT `pengrajin_kayu_ibfk_1` FOREIGN KEY (`id_kayu`) REFERENCES `kayu` (`id_kayu`);
+
+ALTER TABLE `penjualan`
+  ADD CONSTRAINT `penjualan_ibfk_1` FOREIGN KEY (`id_reseller`) REFERENCES `reseller` (`id_reseller`);
+
+ALTER TABLE `reseller`
+  ADD CONSTRAINT `reseller_ibfk_1` FOREIGN KEY (`id_mebel`) REFERENCES `mebel` (`id_mebel`);
+COMMIT;
