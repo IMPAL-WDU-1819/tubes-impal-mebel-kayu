@@ -1,7 +1,9 @@
+## CREATE TABLE ##
+
 CREATE TABLE `ceo` (
   `id_ceo` int(6) NOT NULL,
   `nama_ceo` varchar(50) DEFAULT NULL
-) 
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `kayu` (
   `id_kayu` int(6) NOT NULL,
@@ -38,7 +40,7 @@ CREATE TABLE `supplier` (
   `nama_supplier` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
+## ADD PRIMARY KEY ##
 
 ALTER TABLE `ceo`
   ADD PRIMARY KEY (`id_ceo`);
@@ -66,6 +68,7 @@ ALTER TABLE `reseller`
 ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id_supplier`);
 
+## ADD FOREIGN KEY ##
 
 ALTER TABLE `kayu`
   ADD CONSTRAINT `kayu_ibfk_1` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`);
