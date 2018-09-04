@@ -1,0 +1,124 @@
+{
+	"data": [
+    	{
+      		"nama" : "Lionel Messi",
+      		"email" : "messi@adityaeka.com",
+      		"username" : "messi",
+      		"umur" : "30",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Andres Iniesta",
+      		"email" : "iniesta@adityaeka.com",
+      		"username" : "iniesta",
+      		"umur" : "29",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Luis Suarez",
+      		"email" : "suarez@adityaeka.com",
+      		"username" : "suarez",
+      		"umur" : "28",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Philippe Coutinho",
+      		"email" : "coutinho@adityaeka.com",
+      		"username" : "coutinho",
+      		"umur" : "27",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Ousmane Dembele",
+      		"email" : "dembele@adityaeka.com",
+      		"username" : "dembele",
+      		"umur" : "26",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Paco Alcacer",
+      		"email" : "alcacer@adityaeka.com",
+      		"username" : "alcacer",
+      		"umur" : "25",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Paulinho",
+      		"email" : "paulinho@adityaeka.com",
+      		"username" : "paulinho",
+      		"umur" : "24",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Ivan Rakitic",
+      		"email" : "rakitic@adityaeka.com",
+      		"username" : "rakitic",
+      		"umur" : "23",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Andre Gomes",
+      		"email" : "andre@adityaeka.com",
+      		"username" : "andre",
+      		"umur" : "22",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Denis Suarez",
+      		"email" : "denis@adityaeka.com",
+      		"username" : "denis",
+      		"umur" : "21",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Jordi Alba",
+      		"email" : "alba@adityaeka.com",
+      		"username" : "alba",
+      		"umur" : "20",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Samuel Umtiti",
+      		"email" : "umtiti@adityaeka.com",
+      		"username" : "umtiti",
+      		"umur" : "19",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Gerard Pique",
+      		"email" : "pique@adityaeka.com",
+      		"username" : "pique",
+      		"umur" : "18",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Sergi Roberto",
+      		"email" : "roberto@adityaeka.com",
+      		"username" : "roberto",
+      		"umur" : "31",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Sergio Busquets",
+      		"email" : "sergio@adityaeka.com",
+      		"username" : "sergio",
+      		"umur" : "32",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Nelson Semedo",
+      		"email" : "semedo@adityaeka.com",
+      		"username" : "semedo",
+      		"umur" : "33",
+      		"notelp" : "081357687939"
+    	},
+    	{
+      		"nama" : "Luca Digne",
+      		"email" : "digne@adityaeka.com",
+      		"username" : "digne",
+      		"umur" : "34",
+      		"notelp" : "081357687939"
+    	}
+    ]
+}
+   
