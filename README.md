@@ -11,4 +11,4 @@ Team
 4. Fetra Moira Fiermansyah
 
 Project: http://adityaeka.com/impal
-===================================
+----------------------------------
