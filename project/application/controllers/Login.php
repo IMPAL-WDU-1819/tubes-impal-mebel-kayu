@@ -17,7 +17,7 @@ class Login extends CI_Controller {
  		if ($result > 0 && $login_as == "supplier") {
  			$this->session->set_userdata('user_supplier', $username);
  			$this->session->set_flashdata('message', 'Login berhasil!');
- 			redirect('page/login');
+ 			redirect('page/supplier');
  		} else {
  			$this->session->set_flashdata('message', 'Login gagal!');
  			redirect('page/login');

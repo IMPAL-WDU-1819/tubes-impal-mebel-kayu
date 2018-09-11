@@ -2,16 +2,16 @@
 <html>
 <head>
 	<title><?php echo $title ?> | Sistem Informasi Mebel</title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/bootstrap.css"/>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/style.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/fontawesome-all.css">
-	<link rel="shortcut icon" href="<?php echo base_url() ?>img/favicon/icon.ico"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/fontawesome-all.css">
+	<link rel="shortcut icon" href="<?php echo base_url() ?>assets/img/favicon/icon.ico"/>
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet"> 
 </head>
 <body>
 	<div class="container">
 		<div class="row justify-content-center" style="margin-top: 150px">
-			<div class="col-lg-4" style="border-top: 5px solid purple; border-bottom: 5px solid purple; background-color: white; box-shadow: 0px 0px 10px #1234;">
+			<div class="col-lg-4" style="border-top: 5px solid #007bff; border-bottom: 10px solid #007bff; background-color: white; box-shadow: 0px 0px 10px #1234;">
 				<form class="login" id="login" method="post" action="<?php echo base_url() ?>login">
 					<center>
 						<h2 style="margin-top: 20px"><?php echo $title ?></h2><br>
@@ -44,7 +44,10 @@
 		</div>
 	</div>
 	
-	<script type="text/javascript" src="<?php echo base_url() ?>js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url() ?>js/bootstrap.js"></script>	
+	<script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url() ?>assets/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		alert("Username & Password Supplier: user");
+	</script>
 </body>
 </html>
