@@ -30,10 +30,23 @@ class Page extends CI_Controller {
  		$this->load->view('v_supplier', $data);
 	}
 	public function supplier_profile() {
+		if (!$this->session->userdata('user_supplier')) {
+			redirect('page/login');
+		}
 		$data = $this->data;
 		$data["title"] = "Profil Supplier";
 		$user = $this->session->userdata('user_supplier');
 		$data["user"] = $this->M_supplier->get_user($user);
  		$this->load->view('v_supplier_profile', $data);
+	}
+	public function supplier_tambahkayu() {
+		if (!$this->session->userdata('user_supplier')) {
+			redirect('page/login');
+		}
+		$data = $this->data;
+		$data["title"] = "Tambah Kayu";
+		$user = $this->session->userdata('user_supplier');
+		$data["user"] = $this->M_supplier->get_user($user);
+		$this->load->view('v_supplier_tambahkayu', $data);
 	}
 }

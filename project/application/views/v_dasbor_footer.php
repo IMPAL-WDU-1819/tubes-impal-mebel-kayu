@@ -4,17 +4,7 @@
             <ul>
                 <li>
                     <a href="<?php echo base_url()?>">
-                        Creative Tim
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url()?>">
-                        Blog
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url()?>">
-                        Licenses
+                        About Us
                     </a>
                 </li>
             </ul>

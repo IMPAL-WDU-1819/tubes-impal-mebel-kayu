@@ -11,6 +11,12 @@
             <p>Profil</p>
         </a>
     </li>
+    <li id="menu_tambahkayu">
+        <a href="<?php echo base_url()?>page/supplier_tambahkayu">
+            <i class="ti-user"></i>
+            <p>Tambah Kayu</p>
+        </a>
+    </li>
                 <!-- <li>
                     <a href="table.html">
                         <i class="ti-view-list-alt"></i>

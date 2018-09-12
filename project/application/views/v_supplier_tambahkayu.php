@@ -93,27 +93,23 @@
                     <div class="col-lg-8 col-md-7">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Edit Profile</h4>
+                                <h4 class="title">Tambah Kayu</h4>
                             </div>
                             <div class="content">
-                                <form action="<?php echo base_url()?>supplier/update_profile" method="post">
+                                <?php echo form_open_multipart('supplier/add_kayu');?>
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Perusahaan</label>
-                                                <input type="text" class="form-control border-input" disabled placeholder="Perusahaan" value="<?php echo $company?>">
+                                                <label>ID Supplier</label>
+                                                <input type="text" class="form-control border-input" disabled placeholder="ID Supplier" name="idsupplier" value="<?php echo $user["id_supplier"]?>">
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Username</label>
-                                                <input required type="text" class="form-control border-input" disabled placeholder="Username" value="<?php echo $user["user_supplier"]?>">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email</label>
-                                                <input required type="email" name="email" class="form-control border-input" placeholder="Email" value="<?php echo $user["email_supplier"]?>">
+                                                <label>Nama Kayu</label>
+                                                <input type="text" class="form-control border-input" placeholder="Nama Kayu" name="nama" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -121,41 +117,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Nama Depan</label>
-                                                <input required type="text" class="form-control border-input" name="namadepan" placeholder="Nama Depan" value="<?php echo $user["nama_supplier"]?>">
+                                                <label>Ukuran Kayu</label>
+                                                <input required type="number" class="form-control border-input" name="ukuran" placeholder="Ukuran Kayu" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Nama Belakang</label>
-                                                <input required type="text" class="form-control border-input" name="namabelakang" placeholder="Nama Belakang" value="<?php echo $user["namabelakang_supplier"]?>">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Kecamatan</label>
-                                                <input required type="text" class="form-control border-input" name="kecamatan" placeholder="Kecamatan" value="<?php echo $user["kecamatan_supplier"]?>">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Kota</label>
-                                                <input required type="text" class="form-control border-input" name="kota" placeholder="Kota" value="<?php echo $user["kota_supplier"]?>">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Negara</label>
-                                                <input required type="text" class="form-control border-input" name="negara" placeholder="Negara" value="<?php echo $user["negara_supplier"]?>">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Kode Pos</label>
-                                                <input required type="number" class="form-control border-input" name="kodepos" placeholder="Kode Pos" value="<?php echo $user["kodepos_supplier"]?>">
+                                                <label>Stok Kayu</label>
+                                                <input required type="number" class="form-control border-input" name="stok" placeholder="Stok Kayu" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -163,13 +132,32 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>About Me</label>
-                                                <textarea required rows="5" class="form-control border-input" name="tentang" placeholder="Here can be your description" value="Mike"><?php echo $user["tentang_supplier"]?></textarea>
+                                                <label>Deskripsi Kayu</label>
+                                                <textarea required rows="5" class="form-control border-input" name="deskripsi" placeholder="Deskripsi Kayu"></textarea>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Harga Kayu</label>
+                                                <input type="number" class="form-control border-input" placeholder="Harga Kayu" name="harga" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Foto Kayu</label>
+                                                <input name="foto" type="file" class="form-control-file">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profil</button>
+                                        <button type="submit" class="btn btn-info btn-fill btn-wd">Tambahkan Kayu</button>
                                     </div>
                                     <div class="clearfix"></div>
                                 </form>
@@ -237,7 +225,7 @@
     <?php } ?>
 
     <script type="text/javascript">
-        $("#menu_profile").addClass( "active" );
+        $("#menu_tambahkayu").addClass( "active" );
     </script>
 
 </html>

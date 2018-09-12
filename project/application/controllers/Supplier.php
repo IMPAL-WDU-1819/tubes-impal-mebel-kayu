@@ -23,4 +23,34 @@ class Supplier extends CI_Controller {
 		$this->session->set_flashdata("message", "Profil berhasil diperbarui!");
 		redirect("page/supplier_profile");
 	}
+	public function add_kayu() {
+		$config['upload_path'] = './assets/upload/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size']	= 5000;
+
+        $this->upload->initialize($config);
+
+        if ($this->upload->do_upload('foto')) {
+        	$img = $this->upload->data();
+
+        	$nama = $this->input->post("nama");
+        	$ukuran = $this->input->post("ukuran");
+        	$stok = $this->input->post("stok");
+        	$deskripsi = $this->input->post("deskripsi");
+        	$harga = $this->input->post("harga");
+        	$idsupplier = $this->input->post("idsupplier");
+        	$image = $img['file_name'];
+
+        	$trim = trim($nama);
+	        $slug = strtolower(str_replace(" ", "-", $trim));
+
+	        $this->M_supplier->add_kayu($nama, $ukuran, $stok, $deskripsi, $harga, $image, $slug, $idsupplier);
+
+	        $this->session->set_flashdata('message', "Kayu berhasil ditambahkan!");
+	        redirect('page/supplier_tambahkayu');
+        } else {
+        	$this->session->set_flashdata('message', $this->upload->display_errors());
+			redirect('page/supplier_tambahkayu');
+        }
+	}
 }
