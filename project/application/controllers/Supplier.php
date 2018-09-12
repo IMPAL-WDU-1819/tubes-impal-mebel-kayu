@@ -9,6 +9,7 @@ class Supplier extends CI_Controller {
 			"company" => "Incognito Jaya"
 		);
 		$this->load->model("M_supplier");
+		$this->load->model("M_kayu");
 	}
 	public function update_profile() {
 		$email = $this->input->post('email');
@@ -44,7 +45,7 @@ class Supplier extends CI_Controller {
         	$trim = trim($nama);
 	        $slug = strtolower(str_replace(" ", "-", $trim));
 
-	        $this->M_supplier->add_kayu($nama, $ukuran, $stok, $deskripsi, $harga, $image, $slug, $idsupplier);
+	        $this->M_kayu->add_kayu($nama, $ukuran, $stok, $deskripsi, $harga, $image, $slug, $idsupplier);
 
 	        $this->session->set_flashdata('message', "Kayu berhasil ditambahkan!");
 	        redirect('page/supplier_tambahkayu');

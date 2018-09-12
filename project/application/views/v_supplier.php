@@ -4,6 +4,7 @@
 	<meta charset="utf-8" />
 	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url()?>assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url()?>assets/img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/datatables.min.css"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title><?php echo $title?></title>
@@ -30,6 +31,32 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="<?php echo base_url()?>assets/css/themify-icons.css" rel="stylesheet">
+
+    <style type="text/css">
+    .table .square {
+        position: relative;
+        width: 250px;     
+        height: 250px;
+        overflow: hidden;
+    }
+    .table img {
+        position: absolute;
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        top: 50%;     
+        left: 50%;
+        transform: translate( -50%, -50%);
+        margin:0px auto;
+    }
+    .table img.landscape {
+        height: 100%;
+        width: auto;
+    }
+    td, th {
+        text-align:center;
+    }
+    </style>
 
 </head>
 <body>
@@ -60,128 +87,46 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-xs-5">
-                                        <div class="icon-big icon-warning text-center">
-                                            <i class="ti-server"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-7">
-                                        <div class="numbers">
-                                            <p>Capacity</p>
-                                            105GB
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <hr />
-                                    <div class="stats">
-                                        <i class="ti-reload"></i> Updated now
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-xs-5">
-                                        <div class="icon-big icon-success text-center">
-                                            <i class="ti-wallet"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-7">
-                                        <div class="numbers">
-                                            <p>Revenue</p>
-                                            $1,345
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <hr />
-                                    <div class="stats">
-                                        <i class="ti-calendar"></i> Last day
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-xs-5">
-                                        <div class="icon-big icon-danger text-center">
-                                            <i class="ti-pulse"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-7">
-                                        <div class="numbers">
-                                            <p>Errors</p>
-                                            23
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <hr />
-                                    <div class="stats">
-                                        <i class="ti-timer"></i> In the last hour
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-xs-5">
-                                        <div class="icon-big icon-info text-center">
-                                            <i class="ti-twitter-alt"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-7">
-                                        <div class="numbers">
-                                            <p>Followers</p>
-                                            +45
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <hr />
-                                    <div class="stats">
-                                        <i class="ti-reload"></i> Updated now
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Users Behavior</h4>
-                                <p class="category">24 Hours performance</p>
+                                <h4 class="title">Daftar Kayu</h4>
+                                <p class="category">ID Supplier: <?php echo $user["id_supplier"]?></p>
                             </div>
                             <div class="content">
-                                <div id="chartHours" class="ct-chart"></div>
-                                <div class="footer">
-                                    <div class="chart-legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Click
-                                        <i class="fa fa-circle text-warning"></i> Click Second Time
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="ti-reload"></i> Updated 3 minutes ago
-                                    </div>
-                                </div>
+
+                                <table id="table" class="table" style="width:100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>Gambar</th>
+                                            <th>Nama</th>
+                                            <th>Ukuran</th>
+                                            <th>Deskripsi</th>
+                                            <th>Stok</th>
+                                            <th>Harga</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($kayu->result_array() as $kayu_arr) { ?>
+                                            <tr>
+                                                <td style="width:340px;">
+                                                    <div class="square"><img class="landscape d-table mx-auto" src="<?php echo base_url() ?>assets/upload/<?php echo $kayu_arr["image_kayu"]?>"></div>
+                                                </td>
+                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["nama_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["ukuran_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["deskripsi_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["stok_kayu"]?></td>
+                                                <td style="vertical-align : middle;">Rp. <?php echo $kayu_arr["harga_kayu"]?></td>
+                                                <td style="vertical-align : middle;">
+                                                    <a style="margin-bottom:10px; width: 100%;" href="#" class="btn btn-success btn-sm"><span class="fa fa-edit"></span></a><br>
+                                                    <a onclick="return confirm('Yakin ingin menghapus produk ini?');" style="width: 100%;" href="#" class="btn btn-danger btn-sm"><span class="fa fa-trash-alt"></span></a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                     </div>
@@ -218,14 +163,7 @@
 
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="<?php echo base_url()?>assets/js/demo.js"></script>
-
-	<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.initChartist();
-
-    	});
-	</script>
+    <script type="text/javascript" src="<?php echo base_url() ?>js/datatables.min.js"></script>
 
     <script type="text/javascript">
         $("#menu_dasbor").addClass( "active" );

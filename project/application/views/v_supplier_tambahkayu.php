@@ -58,38 +58,6 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-4 col-md-5">
-                        <div class="card card-user">
-                            <div class="image">
-                                <img src="<?php echo base_url()?>assets/img/background.jpg" alt="..."/>
-                            </div>
-                            <div class="content">
-                                <div class="author">
-                                  <img class="avatar border-white" src="<?php echo base_url()?>assets/upload/<?php echo $user["foto_supplier"]?>" alt="..."/>
-                                  <h4 class="title"><?php echo $user["nama_supplier"]?><br />
-                                     <small>@<?php echo $user["user_supplier"]?></small>
-                                  </h4>
-                                </div>
-                                <p class="description text-center">
-                                    "<?php echo $user["tentang_supplier"]?>"
-                                </p>
-                            </div>
-                            <hr>
-                            <div class="text-center">
-                                <div class="row">
-                                    <div class="col-md-3 col-md-offset-1">
-                                        <h5>12<br /><small>Files</small></h5>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h5>2GB<br /><small>Used</small></h5>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h5>24,6$<br /><small>Spent</small></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-lg-8 col-md-7">
                         <div class="card">
                             <div class="header">
@@ -161,6 +129,38 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="card card-user">
+                            <div class="image">
+                                <img src="<?php echo base_url()?>assets/img/background.jpg" alt="..."/>
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                  <img class="avatar border-white" src="<?php echo base_url()?>assets/upload/<?php echo $user["foto_supplier"]?>" alt="..."/>
+                                  <h4 class="title"><?php echo $user["nama_supplier"]?><br />
+                                     <small>@<?php echo $user["user_supplier"]?></small>
+                                  </h4>
+                                </div>
+                                <p class="description text-center">
+                                    "<?php echo $user["tentang_supplier"]?>"
+                                </p>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <div class="row">
+                                    <div class="col-md-3 col-md-offset-1">
+                                        <h5>12<br /><small>Files</small></h5>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5>2GB<br /><small>Used</small></h5>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h5>24,6$<br /><small>Spent</small></h5>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

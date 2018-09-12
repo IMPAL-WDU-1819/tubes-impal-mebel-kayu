@@ -9,12 +9,14 @@ class Page extends CI_Controller {
 			"company" => "Incognito Jaya"
 		);
 		$this->load->model("M_supplier");
+		$this->load->model("M_kayu");
 	}
 
 	public function index() {
-		$data = $this->data;
-		$data["title"] = "Halaman Masuk";
- 		$this->load->view('v_login', $data);
+		if ($this->session->userdata('user_supplier')) {
+			redirect('page/supplier');
+		}
+		redirect('page/login');
 	}
 	public function login() {
 		$data = $this->data;
@@ -27,6 +29,9 @@ class Page extends CI_Controller {
 		}
 		$data = $this->data;
 		$data["title"] = "Supplier";
+		$user = $this->session->userdata('user_supplier');
+		$data["user"] = $this->M_supplier->get_user($user);
+		$data["kayu"] = $this->M_kayu->get_kayu();
  		$this->load->view('v_supplier', $data);
 	}
 	public function supplier_profile() {
