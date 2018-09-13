@@ -1,0 +1,64 @@
+body {
+    background:black;
+    font-family: Arial;
+}
+.sidebarset {
+	background: #f2ca67;
+	width: 20%;
+	position: fixed;
+	height: 100%;
+
+}
+.navbarset {
+    	left: 20%;
+    	top:0px;
+    	position: relative;
+    	width: 80%;
+}
+.navbarlogout {
+	right: 0px;
+}
+ 
+.namapt {
+	font-size: 40px;
+	position: center;
+	font-family: calibry;
+	color: black;
+	padding-top: 20px;	
+}
+.secondary {
+			background: #D4e0ce;
+			border-style: solid;
+	 		margin-left: 40px;
+	 		border-radius: 8px;
+		}
+.post {
+	background: white;
+	margin-left: 10px;
+	border-left-style: solid;
+}
+.cari {
+	margin-left: 50px;
+}
+.button1 {
+	background-color: purple;
+	width: 100px;
+	height: 38px;
+	border-radius: 8px;
+	color: white;
+
+}
+.button {
+	background-color: #f2ca67;
+	text-align: center;
+	border-radius: 8px;
+	color: black;
+	font-size: 15px;
+	width: 100px;
+
+}
+.notif {
+	 width: 25px;
+    height: 21px;
+    margin-right: 5px;
+}
