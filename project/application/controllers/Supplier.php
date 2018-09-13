@@ -20,7 +20,8 @@ class Supplier extends CI_Controller {
 		$negara = $this->input->post('negara');
 		$kodepos = $this->input->post('kodepos');
 		$tentang = $this->input->post('tentang');
-		$this->M_supplier->update_profile($email, $namadepan, $namabelakang, $kecamatan, $kota, $negara, $kodepos, $tentang);
+		$username = $this->input->post('username');
+		$this->M_supplier->update_profile($email, $namadepan, $namabelakang, $kecamatan, $kota, $negara, $kodepos, $tentang, $username);
 		$this->session->set_flashdata("message", "Profil berhasil diperbarui!");
 		redirect("page/supplier_profile");
 	}

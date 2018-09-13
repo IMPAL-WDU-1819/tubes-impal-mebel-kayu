@@ -79,9 +79,6 @@
     </div>
 
     <div class="main-panel">
-        
-        <?php include "v_dasbor_navbar.php"?>
-
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -89,42 +86,52 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title"><?php echo $title?></h4>
-                                <p class="category">ID Supplier: <?php echo $user["id_supplier"]?></p>
                             </div>
                             <div class="content">
-
-                                <table id="table" class="table" style="width:100%;">
-                                    <thead>
-                                        <tr>
-                                            <th>Gambar</th>
-                                            <th>Nama</th>
-                                            <th>Ukuran</th>
-                                            <th>Deskripsi</th>
-                                            <th>Stok</th>
-                                            <th>Harga</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($kayu->result_array() as $kayu_arr) { ?>
-                                            <tr>
-                                                <td style="width:340px;">
-                                                    <div class="square"><img src="<?php echo base_url() ?>assets/upload/<?php echo $kayu_arr["image_kayu"]?>"></div>
-                                                </td>
-                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["nama_kayu"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["ukuran_kayu"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["deskripsi_kayu"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["stok_kayu"]?></td>
-                                                <td style="vertical-align : middle;">Rp. <?php echo $kayu_arr["harga_kayu"]?></td>
-                                                <td style="vertical-align : middle;">
-                                                    <a style="margin-bottom:10px; width: 100%;" href="#" class="btn btn-success btn-sm"><span class="fa fa-edit"></span></a><br>
-                                                    <a onclick="return confirm('Yakin ingin menghapus produk ini?');" style="width: 100%;" href="#" class="btn btn-danger btn-sm"><span class="fa fa-trash-alt"></span></a>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-
+                                <div class="row" style="margin-bottom: 40px; margin-top: 20px;">
+                                    <div class="col-md-6">
+                                        <center>
+                                            <img style="width: 300px; border-radius: 50%;" src="<?php echo base_url() ?>assets/img/aditya.jpg"><br><br>
+                                            <span>
+                                                ADITYA EKA BAGASKARA<br>
+                                                IF-40-11<br>
+                                                1301164222
+                                            </span>
+                                        </center>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <center>
+                                            <img style="width: 300px; border-radius: 50%;" class="rounded-circle" src="<?php echo base_url() ?>assets/img/ahmad.jpg"><br><br>
+                                            <span>
+                                                AHMAD RIZKY PRAYOGI<br>
+                                                IF-40-11<br>
+                                                130116XXXX
+                                            </span>
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom: 40px;">
+                                    <div class="col-md-6">
+                                        <center>
+                                            <img style="width: 300px; border-radius: 50%;" class="rounded-circle" src="<?php echo base_url() ?>assets/img/johan.jpg"><br><br>
+                                            <span>
+                                                JOHAN ANTONIUS SALIM<br>
+                                                IF-40-11<br>
+                                                130116XXXX
+                                            </span>
+                                        </center>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <center>
+                                            <img style="width: 300px; border-radius: 50%;" class="rounded-circle" src="<?php echo base_url() ?>assets/img/fetra.jpg"><br><br>
+                                            <span>
+                                                FETRA MOIRA FIERMANSYAH<br>
+                                                IF-40-11<br>
+                                                130116XXXX
+                                            </span>
+                                        </center>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,7 +177,7 @@
     </script>
 
     <script type="text/javascript">
-        $("#menu_dasbor").addClass( "active" );
+        $("#menu_about").addClass( "active" );
     </script>
 
 </html>

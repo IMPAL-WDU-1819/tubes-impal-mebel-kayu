@@ -10,7 +10,7 @@ class M_supplier extends CI_Model {
 		$this->db->where("user_supplier", $user);
 		return $this->db->get("supplier")->result_array()[0];
 	}
-	public function update_profile($email, $namadepan, $namabelakang, $kecamatan, $kota, $negara, $kodepos, $tentang) {
+	public function update_profile($email, $namadepan, $namabelakang, $kecamatan, $kota, $negara, $kodepos, $tentang, $username) {
 		$data = array(
 			"email_supplier" => $email,
 			"nama_supplier" => $namadepan,
@@ -21,6 +21,7 @@ class M_supplier extends CI_Model {
 			"kodepos_supplier" => $kodepos,
 			"tentang_supplier" => $tentang
 		);
+		$this->db->where("user_supplier", $username);
 		$this->db->update("supplier", $data);
 	}
 }

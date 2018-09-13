@@ -16,6 +16,12 @@
             <i class="ti-user"></i>
             <p>Profil</p>
         </a>
+    </li>
+    <li id="menu_about">
+        <a href="<?php echo base_url()?>page/tentang_kami">
+            <i class="ti-user"></i>
+            <p>Tentang Kami</p>
+        </a>
     </li>    
                 <!-- <li>
                     <a href="table.html">

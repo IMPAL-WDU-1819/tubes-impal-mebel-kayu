@@ -28,10 +28,11 @@ class Page extends CI_Controller {
 			redirect('page/login');
 		}
 		$data = $this->data;
-		$data["title"] = "Supplier";
+		$data["title"] = "Daftar Kayu";
 		$user = $this->session->userdata('user_supplier');
 		$data["user"] = $this->M_supplier->get_user($user);
-		$data["kayu"] = $this->M_kayu->get_kayu();
+		$idsupplier = $data["user"]["id_supplier"];
+		$data["kayu"] = $this->M_kayu->get_kayu_by_idsupplier($idsupplier);
  		$this->load->view('v_supplier', $data);
 	}
 	public function supplier_profile() {
@@ -53,5 +54,10 @@ class Page extends CI_Controller {
 		$user = $this->session->userdata('user_supplier');
 		$data["user"] = $this->M_supplier->get_user($user);
 		$this->load->view('v_supplier_tambahkayu', $data);
+	}
+	public function tentang_kami() {
+		$data = $this->data;
+		$data["title"] = "Tentang Kami";
+		$this->load->view('v_tentangkami', $data);
 	}
 }

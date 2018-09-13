@@ -3,7 +3,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_kayu extends CI_Model {
-	public function get_kayu() {
+	public function get_kayu_by_idsupplier($idsupplier) {
+		$this->db->where("id_supplier", $idsupplier);
 		return $this->db->get("kayu");
 	}
 	public function add_kayu($nama, $ukuran, $stok, $deskripsi, $harga, $image, $slug, $idsupplier) {

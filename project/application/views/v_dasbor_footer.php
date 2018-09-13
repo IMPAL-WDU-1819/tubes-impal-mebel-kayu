@@ -3,8 +3,8 @@
         <nav class="pull-left">
             <ul>
                 <li>
-                    <a href="<?php echo base_url()?>">
-                        About Us
+                    <a href="<?php echo base_url()?>page/tentang_kami">
+                        Tentang Kami
                     </a>
                 </li>
             </ul>

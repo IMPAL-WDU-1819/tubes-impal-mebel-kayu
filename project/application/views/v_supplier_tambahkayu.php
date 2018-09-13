@@ -61,15 +61,15 @@
                     <div class="col-lg-8 col-md-7">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Tambah Kayu</h4>
+                                <h4 class="title"><?php echo $title?></h4>
                             </div>
                             <div class="content">
                                 <?php echo form_open_multipart('supplier/add_kayu');?>
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div style="display: none;" class="col-md-12">
                                             <div class="form-group">
                                                 <label>ID Supplier</label>
-                                                <input type="text" class="form-control border-input" disabled placeholder="ID Supplier" name="idsupplier" value="<?php echo $user["id_supplier"]?>">
+                                                <input type="number" class="form-control border-input" placeholder="ID Supplier" name="idsupplier" value="<?php echo $user["id_supplier"]?>">
                                             </div>
                                         </div>
                                     </div>
@@ -151,14 +151,11 @@
                             <hr>
                             <div class="text-center">
                                 <div class="row">
-                                    <div class="col-md-3 col-md-offset-1">
-                                        <h5>12<br /><small>Files</small></h5>
+                                    <div class="col-md-6">
+                                        <h5>3<br /><small>Jumlah Kayu</small></h5>
                                     </div>
-                                    <div class="col-md-4">
-                                        <h5>2GB<br /><small>Used</small></h5>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h5>24,6$<br /><small>Spent</small></h5>
+                                    <div class="col-md-6">
+                                        <h5>Rp. 5000000<br /><small>Pendapatan</small></h5>
                                     </div>
                                 </div>
                             </div>
