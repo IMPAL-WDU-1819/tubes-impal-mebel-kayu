@@ -7,7 +7,7 @@
                 <span class="icon-bar bar2"></span>
                 <span class="icon-bar bar3"></span>
             </button>
-            <a class="navbar-brand" href="#">Supplier</a>
+            <span class="navbar-brand" href="#">Halo, <?php echo $user["nama_supplier"]?> <?php echo $user["namabelakang_supplier"]?> (Supplier)</span>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">

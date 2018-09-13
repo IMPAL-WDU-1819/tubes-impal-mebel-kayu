@@ -35,7 +35,7 @@
     <style type="text/css">
     .table .square {
         position: relative;
-        width: 350px;     
+        width: 400px;     
         height: 140px;
         overflow: hidden;
         margin:5px 15px 5px 5px;
@@ -117,8 +117,7 @@
                                                 <td style="vertical-align : middle;"><?php echo $kayu_arr["stok_kayu"]?></td>
                                                 <td style="vertical-align : middle;">Rp. <?php echo $kayu_arr["harga_kayu"]?></td>
                                                 <td style="vertical-align : middle;">
-                                                    <a style="margin-bottom:10px; width: 100%;" href="#" class="btn btn-success btn-sm"><span class="fa fa-edit"></span></a><br>
-                                                    <a onclick="return confirm('Yakin ingin menghapus produk ini?');" style="width: 100%;" href="#" class="btn btn-danger btn-sm"><span class="fa fa-trash-alt"></span></a>
+                                                    <button type="button" class="btn btn-fill btn-warning btn-lg" data-toggle="modal" data-target="#edit_<?php echo $kayu_arr["id_kayu"]?>">Edit</button>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -137,6 +136,96 @@
     </div>
 </div>
 
+<?php foreach($kayu->result_array() as $kayu_arr) { ?>
+    <div class="modal fade" id="edit_<?php echo $kayu_arr["id_kayu"]?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Kayu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="<?php echo base_url()?>supplier/edit_kayu" method="post">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>ID Kayu</label>
+                                    <input type="number" class="form-control border-input" placeholder="ID Supplier" name="idkayu" value="<?php echo $kayu_arr["id_kayu"]?>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nama Kayu</label>
+                                    <input type="text" class="form-control border-input" placeholder="Nama Kayu" name="nama" value="<?php echo $kayu_arr["nama_kayu"]?>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Ukuran Kayu</label>
+                                    <input required type="number" class="form-control border-input" name="ukuran" placeholder="Ukuran Kayu" value="<?php echo $kayu_arr["ukuran_kayu"]?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Stok Kayu</label>
+                                    <input required type="number" class="form-control border-input" name="stok" placeholder="Stok Kayu" value="<?php echo $kayu_arr["stok_kayu"]?>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Deskripsi Kayu</label>
+                                    <textarea required rows="5" class="form-control border-input" name="deskripsi" placeholder="Deskripsi Kayu"><?php echo $kayu_arr["deskripsi_kayu"]?></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Harga Kayu</label>
+                                    <input type="number" class="form-control border-input" placeholder="Harga Kayu" name="harga" value="<?php echo $kayu_arr["harga_kayu"]?>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-info btn-fill btn-wd" value="Simpan">
+                        <button type="button" class="btn btn-fill btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Peringatan!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php echo $this->session->flashdata("message")?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-fill btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 
@@ -163,10 +252,18 @@
 	<script src="<?php echo base_url()?>assets/js/demo.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/js/datatables.min.js"></script>
 
+    <?php if ($this->session->flashdata("message")) { ?>
+        <script type="text/javascript">
+        $(window).on('load',function(){
+            $('#modal').modal('show');
+        });
+        </script>
+    <?php } ?>
+
     <script type="text/javascript">
         $(document).ready( function () {
             $('#table').DataTable();
-        });
+        } );
     </script>
 
     <script type="text/javascript">

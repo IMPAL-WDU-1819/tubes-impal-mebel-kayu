@@ -158,7 +158,7 @@
                             <div class="content">
                                 <div class="author">
                                   <img class="avatar border-white" src="<?php echo base_url()?>assets/upload/<?php echo $user["foto_supplier"]?>" alt="..."/>
-                                  <h4 class="title"><?php echo $user["nama_supplier"]?><br />
+                                  <h4 class="title"><?php echo $user["nama_supplier"]?> <?php echo $user["namabelakang_supplier"]?><br />
                                      <small>@<?php echo $user["user_supplier"]?></small>
                                   </h4>
                                 </div>
@@ -201,7 +201,7 @@
                 <?php echo $this->session->flashdata("message")?>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-fill btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

@@ -55,4 +55,15 @@ class Supplier extends CI_Controller {
 			redirect('page/supplier_tambahkayu');
         }
 	}
+	public function edit_kayu() {
+		$nama = $this->input->post("nama");
+        $ukuran = $this->input->post("ukuran");
+        $stok = $this->input->post("stok");
+        $deskripsi = $this->input->post("deskripsi");
+        $harga = $this->input->post("harga");
+        $idkayu = $this->input->post("idkayu");
+        $this->M_kayu->edit_kayu($nama, $ukuran, $stok, $deskripsi, $harga, $idkayu);
+        $this->session->set_flashdata('message', "Kayu berhasil diedit!");
+        redirect('page/supplier');
+	}
 }

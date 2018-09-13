@@ -33,26 +33,17 @@
     <link href="<?php echo base_url()?>assets/css/themify-icons.css" rel="stylesheet">
 
     <style type="text/css">
-    .table .square {
-        position: relative;
-        width: 350px;     
-        height: 140px;
-        overflow: hidden;
-        margin:5px 15px 5px 5px;
+    .profile img {
+        border-radius: 50%;
+        -webkit-transition: -webkit-transform .8s ease-in-out;
+        transition: transform .5s ease-in-out;
     }
-    .table img {
-        position: absolute;
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        top: 50%;     
-        left: 50%;
-        transform: translate( -50%, -50%);
-        margin:0px auto;
+    .profile img:hover {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
     }
-    .table img.landscape {
-        height: 100%;
-        width: auto;
+    .profile span {
+        font-size: 20px;
     }
     </style>
 
@@ -87,8 +78,8 @@
                             <div class="header">
                                 <h4 class="title"><?php echo $title?></h4>
                             </div>
-                            <div class="content">
-                                <div class="row" style="margin-bottom: 40px; margin-top: 20px;">
+                            <div class="content profile">
+                                <div class="row" style="margin-bottom: 60px; margin-top: 20px;">
                                     <div class="col-md-6">
                                         <center>
                                             <img style="width: 300px; border-radius: 50%;" src="<?php echo base_url() ?>assets/img/aditya.jpg"><br><br>

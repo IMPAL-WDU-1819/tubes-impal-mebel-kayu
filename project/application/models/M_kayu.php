@@ -20,4 +20,15 @@ class M_kayu extends CI_Model {
 		);
 		$this->db->insert("kayu", $data);
 	}
+	public function edit_kayu($nama, $ukuran, $stok, $deskripsi, $harga, $idkayu) {
+		$data = array(
+			"nama_kayu" => $nama,
+			"ukuran_kayu" => $ukuran,
+			"stok_kayu" => $stok,
+			"deskripsi_kayu" => $deskripsi,
+			"harga_kayu" => $harga
+		);
+		$this->db->where("id_kayu", $idkayu);
+		$this->db->update("kayu", $data);
+	}
 }
