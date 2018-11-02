@@ -74,13 +74,14 @@
                 </a>
             </div>
 
-            <?php include "v_dasbor_sidebar.php"?>
+            <?php include "v_dasbor_sidebar.php" ?>            
+
     	</div>
     </div>
 
     <div class="main-panel">
         
-        <?php include "v_dasbor_navbar.php"?>
+        <?php include "v_dasbor_navbar.php" ?>
 
         <div class="content">
             <div class="container-fluid">
@@ -89,7 +90,7 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title"><?php echo $title?></h4>
-                                <p class="category">ID Supplier: <?php echo $user["id_supplier"]?></p>
+                                <p class="category">ID Supplier: <?php echo $user["id_toko"]?></p>
                             </div>
                             <div class="content">
 
@@ -106,18 +107,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach($kayu->result_array() as $kayu_arr) { ?>
+                                        <?php foreach($mebel->result_array() as $mebel_arr) { ?>
                                             <tr>
                                                 <td style="width:340px;">
-                                                    <div class="square"><img src="<?php echo base_url() ?>assets/upload/<?php echo $kayu_arr["image_kayu"]?>"></div>
+                                                    <div class="square"><img src="<?php echo base_url() ?>assets/upload/<?php echo $mebel_arr["image_kayu"]?>"></div>
                                                 </td>
-                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["nama_kayu"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["ukuran_kayu"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["deskripsi_kayu"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $kayu_arr["stok_kayu"]?></td>
-                                                <td style="vertical-align : middle;">Rp. <?php echo $kayu_arr["harga_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["nama_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["ukuran_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["deskripsi_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["stok_kayu"]?></td>
+                                                <td style="vertical-align : middle;">Rp. <?php echo $mebel_arr["harga_kayu"]?></td>
                                                 <td style="vertical-align : middle;">
-                                                    <button type="button" class="btn btn-fill btn-warning btn-lg" data-toggle="modal" data-target="#edit_<?php echo $kayu_arr["id_kayu"]?>">Edit</button>
+                                                    <button type="button" class="btn btn-fill btn-warning btn-lg" data-toggle="modal" data-target="#edit_<?php echo $mebel_arr["id_kayu"]?>">Edit</button>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -131,13 +132,13 @@
             </div>
         </div>
 
-        <?php include "v_dasbor_footer.php";?>
+        <?php include "v_dasbor_footer.php" ?>
 
     </div>
 </div>
 
-<?php foreach($kayu->result_array() as $kayu_arr) { ?>
-    <div class="modal fade" id="edit_<?php echo $kayu_arr["id_kayu"]?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<?php foreach($mebel->result_array() as $mebel_arr) { ?>
+    <div class="modal fade" id="edit_<?php echo $mebel_arr["id_kayu"]?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -152,7 +153,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>ID Kayu</label>
-                                    <input type="number" class="form-control border-input" placeholder="ID Supplier" name="idkayu" value="<?php echo $kayu_arr["id_kayu"]?>">
+                                    <input type="number" class="form-control border-input" placeholder="ID Supplier" name="idkayu" value="<?php echo $mebel_arr["id_kayu"]?>">
                                 </div>
                             </div>
                         </div>
@@ -160,7 +161,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Nama Kayu</label>
-                                    <input type="text" class="form-control border-input" placeholder="Nama Kayu" name="nama" value="<?php echo $kayu_arr["nama_kayu"]?>">
+                                    <input type="text" class="form-control border-input" placeholder="Nama Kayu" name="nama" value="<?php echo $mebel_arr["nama_kayu"]?>">
                                 </div>
                             </div>
                         </div>
@@ -169,13 +170,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Ukuran Kayu</label>
-                                    <input required type="number" class="form-control border-input" name="ukuran" placeholder="Ukuran Kayu" value="<?php echo $kayu_arr["ukuran_kayu"]?>">
+                                    <input required type="number" class="form-control border-input" name="ukuran" placeholder="Ukuran Kayu" value="<?php echo $mebel_arr["ukuran_kayu"]?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Stok Kayu</label>
-                                    <input required type="number" class="form-control border-input" name="stok" placeholder="Stok Kayu" value="<?php echo $kayu_arr["stok_kayu"]?>">
+                                    <input required type="number" class="form-control border-input" name="stok" placeholder="Stok Kayu" value="<?php echo $mebel_arr["stok_kayu"]?>">
                                 </div>
                             </div>
                         </div>
@@ -184,7 +185,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Deskripsi Kayu</label>
-                                    <textarea required rows="5" class="form-control border-input" name="deskripsi" placeholder="Deskripsi Kayu"><?php echo $kayu_arr["deskripsi_kayu"]?></textarea>
+                                    <textarea required rows="5" class="form-control border-input" name="deskripsi" placeholder="Deskripsi Kayu"><?php echo $mebel_arr["deskripsi_kayu"]?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -193,7 +194,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Harga Kayu</label>
-                                    <input type="number" class="form-control border-input" placeholder="Harga Kayu" name="harga" value="<?php echo $kayu_arr["harga_kayu"]?>">
+                                    <input type="number" class="form-control border-input" placeholder="Harga Kayu" name="harga" value="<?php echo $mebel_arr["harga_kayu"]?>">
                                 </div>
                             </div>
                         </div>

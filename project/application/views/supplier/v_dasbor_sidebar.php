@@ -18,7 +18,7 @@
         </a>
     </li>
     <li id="menu_about">
-        <a href="<?php echo base_url()?>page/tentang_kami">
+        <a href="<?php echo base_url()?>page/supplier_tentang_kami">
             <i class="ti-heart"></i>
             <p>Tentang Kami</p>
         </a>

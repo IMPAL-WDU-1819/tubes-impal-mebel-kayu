@@ -8,4 +8,9 @@ class M_login extends CI_Model {
 		$this->db->where("pass_supplier", $password);
 		return $this->db->get("supplier");
 	}
+	public function is_login_toko($username, $password) {
+		$this->db->where("user_toko", $username);
+		$this->db->where("pass_toko", $password);
+		return $this->db->get("toko");
+	}
 }

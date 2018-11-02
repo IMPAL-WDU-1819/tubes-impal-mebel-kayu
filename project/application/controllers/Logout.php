@@ -7,4 +7,8 @@ class Logout extends CI_Controller {
 		$this->session->unset_userdata('user_supplier');
 		redirect('page');
 	}
+	public function toko() {
+		$this->session->unset_userdata('user_toko');
+		redirect('page');
+	}
 }

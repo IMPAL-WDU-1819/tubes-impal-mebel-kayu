@@ -10,6 +10,8 @@ class Page extends CI_Controller {
 		);
 		$this->load->model("M_supplier");
 		$this->load->model("M_kayu");
+		$this->load->model("M_toko");
+		$this->load->model("M_mebel");
 	}
 
 	public function index() {
@@ -21,19 +23,25 @@ class Page extends CI_Controller {
 	public function login() {
 		$data = $this->data;
 		$data["title"] = "Halaman Masuk";
- 		$this->load->view('v_login', $data);
+		if ($this->session->userdata('user_supplier')) {
+			redirect('page/supplier');
+		} else if ($this->session->userdata('user_toko')) {
+			redirect('page/toko');
+		} else {
+			$this->load->view('v_login', $data);
+		} 		
 	}
 	public function supplier() {
 		if (!$this->session->userdata('user_supplier')) {
 			redirect('page/login');
 		}
 		$data = $this->data;
-		$data["title"] = "Daftar Kayu";
+		$data["title"] = "Dasbor";
 		$user = $this->session->userdata('user_supplier');
 		$data["user"] = $this->M_supplier->get_user($user);
 		$idsupplier = $data["user"]["id_supplier"];
 		$data["kayu"] = $this->M_kayu->get_kayu_by_idsupplier($idsupplier);
- 		$this->load->view('v_supplier', $data);
+ 		$this->load->view('supplier/v_dasbor', $data);
 	}
 	public function supplier_profile() {
 		if (!$this->session->userdata('user_supplier')) {
@@ -43,7 +51,7 @@ class Page extends CI_Controller {
 		$data["title"] = "Profil Supplier";
 		$user = $this->session->userdata('user_supplier');
 		$data["user"] = $this->M_supplier->get_user($user);
- 		$this->load->view('v_supplier_profile', $data);
+ 		$this->load->view('supplier/v_profile', $data);
 	}
 	public function supplier_tambahkayu() {
 		if (!$this->session->userdata('user_supplier')) {
@@ -53,11 +61,23 @@ class Page extends CI_Controller {
 		$data["title"] = "Tambah Kayu";
 		$user = $this->session->userdata('user_supplier');
 		$data["user"] = $this->M_supplier->get_user($user);
-		$this->load->view('v_supplier_tambahkayu', $data);
+		$this->load->view('supplier/v_tambahkayu', $data);
 	}
-	public function tentang_kami() {
+	public function supplier_tentang_kami() {
 		$data = $this->data;
 		$data["title"] = "Tentang Kami";
-		$this->load->view('v_tentangkami', $data);
+		$this->load->view('supplier/v_tentangkami', $data);
+	}
+	public function toko() {
+		if (!$this->session->userdata('user_toko')) {
+			redirect('page/login');
+		}
+		$data = $this->data;
+		$data["title"] = "Dasbor";
+		$user = $this->session->userdata('user_toko');
+		$data["user"] = $this->M_toko->get_user($user);
+		$idtoko = $data["user"]["id_toko"];
+		$data["mebel"] = $this->M_mebel->get_mebel_by_idtoko($idtoko);
+ 		$this->load->view('toko/v_dasbor', $data);
 	}
 }
