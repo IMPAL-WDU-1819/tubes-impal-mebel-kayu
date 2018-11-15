@@ -7,11 +7,17 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/fontawesome-all.css">
 	<link rel="shortcut icon" href="<?php echo base_url() ?>assets/img/favicon/icon.ico"/>
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet"> 
+	<style type="text/css">
+		.btn-primary {
+			background-color: purple !important;
+			border: purple !important;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row justify-content-center" style="margin-top: 150px">
-			<div class="col-lg-4" style="border-top: 5px solid #007bff; border-bottom: 10px solid #007bff; background-color: white; box-shadow: 0px 0px 10px #1234;">
+			<div class="col-lg-4" style="border-top: 5px solid purple; border-bottom: 10px solid purple; background-color: white; box-shadow: 0px 0px 10px #1234;">
 				<form class="login" id="login" method="post" action="<?php echo base_url() ?>login">
 					<center>
 						<h2 style="margin-top: 20px"><?php echo $title ?></h2><br>
@@ -23,11 +29,11 @@
 	    			<?php } ?>
 					<div class="form-group">
 	     				<label for="username">Username</label>
-	      				<input type="text" class="form-control" placeholder="adityaeka26" name="username" required>
+	      				<input type="text" class="form-control" placeholder="user" value="user" name="username" required>
 	    			</div>
 	    			<div class="form-group">
 	      				<label for="password">Password</label>
-	      				<input type="password" class="form-control" placeholder="123456789" name="password" required>
+	      				<input type="password" class="form-control" placeholder="user" value="user" name="password" required>
 	    			</div>
 	    			<div class="form-group">
 					  	<label for="login_as">Login Sebagai</label>
@@ -35,7 +41,6 @@
 					    	<option value="supplier">Supplier</option>
 					    	<option value="toko">Toko</option>
 					    	<option value="reseller">Reseller</option>
-					    	<option value="ceo">CEO</option>
 					 	</select>
 					</div>
 	    			<input type="submit" class="btn btn-primary" value="Masuk" style="margin-bottom: 20px; margin-top: 10px; width: 100%;">
@@ -48,14 +53,15 @@
 	    <div class="modal-dialog" role="document">
 	        <div class="modal-content">
 	            <div class="modal-header">
-	                <h5 class="modal-title" id="exampleModalLabel">Demo Supplier</h5>
+	                <h5 class="modal-title" id="exampleModalLabel">Demo</h5>
 	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	                    <span aria-hidden="true">&times;</span>
 	                </button>
 	            </div>
 	            <div class="modal-body">
 	            	Username : user<br>
-	            	Password : user
+	            	Password : user<br><br>
+	            	<div class="alert alert-danger">*Note : Demo untuk Reseller masih dalam perbaikan</div>
 	            </div>
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

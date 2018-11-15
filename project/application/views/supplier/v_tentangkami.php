@@ -135,6 +135,85 @@
     </div>
 </div>
 
+<!-- Tambah Kayu -->
+<div class="modal fade" id="tambahKayu" tabindex="-1" role="dialog" aria-labelledby="tambahKayu" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Kayu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php echo form_open_multipart('supplier/add_kayu');?>
+                <div class="modal-body">
+                    <div class="row">
+                        <div style="display: none;" class="col-md-12">
+                            <div class="form-group">
+                                <label>ID Supplier</label>
+                                <input type="number" class="form-control border-input" placeholder="ID Supplier" name="idsupplier" value="<?php echo $user["id_supplier"]?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Nama Kayu</label>
+                                <input type="text" class="form-control border-input" placeholder="Nama Kayu" name="nama" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Ukuran Kayu</label>
+                                <input required type="number" class="form-control border-input" name="ukuran" placeholder="Ukuran Kayu" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Stok Kayu</label>
+                                <input required type="number" class="form-control border-input" name="stok" placeholder="Stok Kayu" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Deskripsi Kayu</label>
+                                <textarea required rows="5" class="form-control border-input" name="deskripsi" placeholder="Deskripsi Kayu"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Harga Kayu</label>
+                                <input type="number" class="form-control border-input" placeholder="Harga Kayu" name="harga" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Foto Kayu</label>
+                                <input name="foto" type="file" class="form-control-file">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info btn-fill btn-wd">Tambahkan Kayu</button>
+                    <button type="button" class="btn btn-fill btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 </body>
 

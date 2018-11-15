@@ -26,11 +26,11 @@
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="<?php echo base_url()?>assets/css/demo.css" rel="stylesheet" />
 
-
     <!--  Fonts and icons     -->
     <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"> -->
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="<?php echo base_url()?>assets/css/themify-icons.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>assets/css/graph.css" rel="stylesheet">
 
     <style type="text/css">
     .table .square {
@@ -55,7 +55,6 @@
         width: auto;
     }
     </style>
-
 </head>
 <body>
 
@@ -88,12 +87,60 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
+                                <h4 class="title">Statistik Penjualan Kayu per Hari</h4>
+                            </div>
+                            <div class="content">
+                                <?php $max = 0?>
+                                <ul class="chart">
+                                    <?php foreach($statistik->result_array() as $statistik_arr) { 
+                                        if ($statistik_arr["stok_terjual"] > $max) {
+                                            $max = $statistik_arr["stok_terjual"];
+                                        }
+                                    } ?>
+                                    <?php foreach($statistik->result_array() as $statistik_arr) { ?>
+                                        <li>
+                                            <span style="height:<?php echo $statistik_arr["stok_terjual"]/$max*100?>%" title="<?php echo $statistik_arr["hari"]?>-<?php echo $statistik_arr["bulan"]?> (<?php echo $statistik_arr["stok_terjual"]?> Kayu)"></span>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Data Penjualan Kayu</h4>
+                            </div>
+                            <div class="content">
+                                <table id="table" class="table datapenjualan" style="width:100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Penjualan</th>
+                                            <th>Nama Kayu</th>
+                                            <th>Jumlah</th>
+                                            <th>Total Harga</th>
+                                            <th>Tanggal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($jual_kayu->result_array() as $jual_kayu_arr) { ?>
+                                            <tr>
+                                                <td style="vertical-align : middle;"><?php echo $jual_kayu_arr["id_jual_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $jual_kayu_arr["nama_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $jual_kayu_arr["jumlah"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $jual_kayu_arr["jumlah"]*$jual_kayu_arr["harga_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $jual_kayu_arr["tanggal"]?></td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="header">
                                 <h4 class="title">Daftar Kayu</h4>
                                 <p class="category">ID Supplier: <?php echo $user["id_supplier"]?></p>
                             </div>
                             <div class="content">
-
-                                <table id="table" class="table" style="width:100%;">
+                                <table id="table" class="table daftarkayu" style="width:100%;">
                                     <thead>
                                         <tr>
                                             <th>Gambar</th>
@@ -123,7 +170,6 @@
                                         <?php } ?>
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
@@ -136,6 +182,7 @@
     </div>
 </div>
 
+<!-- Edit Kayu -->
 <?php foreach($kayu->result_array() as $kayu_arr) { ?>
     <div class="modal fade" id="edit_<?php echo $kayu_arr["id_kayu"]?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -208,7 +255,8 @@
     </div>
 <?php } ?>
 
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Peringatan -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -223,6 +271,86 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-fill btn-secondary" data-dismiss="modal">Close</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tambah Kayu -->
+<div class="modal fade" id="tambahKayu" tabindex="-1" role="dialog" aria-labelledby="tambahKayu" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Kayu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php echo form_open_multipart('supplier/add_kayu');?>
+                <div class="modal-body">
+                    <div class="row">
+                        <div style="display: none;" class="col-md-12">
+                            <div class="form-group">
+                                <label>ID Supplier</label>
+                                <input type="number" class="form-control border-input" placeholder="ID Supplier" name="idsupplier" value="<?php echo $user["id_supplier"]?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Nama Kayu</label>
+                                <input type="text" class="form-control border-input" placeholder="Nama Kayu" name="nama" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Ukuran Kayu</label>
+                                <input required type="number" class="form-control border-input" name="ukuran" placeholder="Ukuran Kayu" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Stok Kayu</label>
+                                <input required type="number" class="form-control border-input" name="stok" placeholder="Stok Kayu" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Deskripsi Kayu</label>
+                                <textarea required rows="5" class="form-control border-input" name="deskripsi" placeholder="Deskripsi Kayu"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Harga Kayu</label>
+                                <input type="number" class="form-control border-input" placeholder="Harga Kayu" name="harga" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Foto Kayu</label>
+                                <input name="foto" type="file" class="form-control-file">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info btn-fill btn-wd">Tambahkan Kayu</button>
+                    <button type="button" class="btn btn-fill btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -262,7 +390,8 @@
 
     <script type="text/javascript">
         $(document).ready( function () {
-            $('#table').DataTable();
+            $('.daftarkayu').DataTable();
+            $('.datapenjualan').DataTable();
         } );
     </script>
 

@@ -90,7 +90,7 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title"><?php echo $title?></h4>
-                                <p class="category">ID Supplier: <?php echo $user["id_toko"]?></p>
+                                <p class="category">ID Toko: <?php echo $user["id_toko"]?></p>
                             </div>
                             <div class="content">
 
@@ -101,6 +101,7 @@
                                             <th>Nama</th>
                                             <th>Ukuran</th>
                                             <th>Deskripsi</th>
+                                            <th>Nama Kayu</th>
                                             <th>Stok</th>
                                             <th>Harga</th>
                                             <th>Aksi</th>
@@ -110,15 +111,16 @@
                                         <?php foreach($mebel->result_array() as $mebel_arr) { ?>
                                             <tr>
                                                 <td style="width:340px;">
-                                                    <div class="square"><img src="<?php echo base_url() ?>assets/upload/<?php echo $mebel_arr["image_kayu"]?>"></div>
+                                                    <div class="square"><img src="<?php echo base_url() ?>assets/upload/<?php echo $mebel_arr["image_mebel"]?>"></div>
                                                 </td>
+                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["nama_mebel"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["ukuran_mebel"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["deskripsi_mebel"]?></td>
                                                 <td style="vertical-align : middle;"><?php echo $mebel_arr["nama_kayu"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["ukuran_kayu"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["deskripsi_kayu"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["stok_kayu"]?></td>
-                                                <td style="vertical-align : middle;">Rp. <?php echo $mebel_arr["harga_kayu"]?></td>
+                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["stok_mebel"]?></td>
+                                                <td style="vertical-align : middle;">Rp. <?php echo $mebel_arr["harga_mebel"]?></td>
                                                 <td style="vertical-align : middle;">
-                                                    <button type="button" class="btn btn-fill btn-warning btn-lg" data-toggle="modal" data-target="#edit_<?php echo $mebel_arr["id_kayu"]?>">Edit</button>
+                                                    <button type="button" class="btn btn-fill btn-warning btn-lg">Edit</button>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -137,7 +139,7 @@
     </div>
 </div>
 
-<?php foreach($mebel->result_array() as $mebel_arr) { ?>
+<!-- <?php foreach($mebel->result_array() as $mebel_arr) { ?>
     <div class="modal fade" id="edit_<?php echo $mebel_arr["id_kayu"]?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -207,7 +209,7 @@
             </div>
         </div>
     </div>
-<?php } ?>
+<?php } ?> -->
 
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -224,6 +226,99 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-fill btn-secondary" data-dismiss="modal">Close</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tambah Mebel -->
+<div class="modal fade" id="tambahMebel" tabindex="-1" role="dialog" aria-labelledby="tambahKayu" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Mebel</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php echo form_open_multipart('toko/add_mebel');?>
+                <div class="modal-body">
+                    <div class="row">
+                        <div style="display: none;" class="col-md-12">
+                            <div class="form-group">
+                                <label>ID Toko</label>
+                                <input type="number" class="form-control border-input" placeholder="ID Toko" name="idtoko" value="<?php echo $user["id_toko"]?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Nama Mebel</label>
+                                <input type="text" class="form-control border-input" placeholder="Nama Mebel" name="nama" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Ukuran Mebel</label>
+                                <input required type="number" class="form-control border-input" name="ukuran" placeholder="Ukuran Mebel" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Stok Mebel</label>
+                                <input required type="number" class="form-control border-input" name="stok" placeholder="Stok Mebel" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Deskripsi Mebel</label>
+                                <textarea required rows="5" class="form-control border-input" name="deskripsi" placeholder="Deskripsi Mebel"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Jenis Kayu</label>
+                                <select class="form-control border-input" name="idkayu">
+                                    <?php foreach ($kayu->result_array() as $kayu_arr) { ?>
+                                        <option value="<?php echo $kayu_arr['id_kayu']?>"><?php echo $kayu_arr['nama_kayu']?> - <?php echo $kayu_arr['id_kayu']?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Harga Mebel</label>
+                                <input type="number" class="form-control border-input" placeholder="Harga Mebel" name="harga" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Foto Mebel</label>
+                                <input name="foto" type="file" class="form-control-file">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-info btn-fill btn-wd">Tambahkan Mebel</button>
+                    <button type="button" class="btn btn-fill btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

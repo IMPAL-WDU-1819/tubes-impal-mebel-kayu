@@ -49,10 +49,10 @@ class Supplier extends CI_Controller {
 	        $this->M_kayu->add_kayu($nama, $ukuran, $stok, $deskripsi, $harga, $image, $slug, $idsupplier);
 
 	        $this->session->set_flashdata('message', "Kayu berhasil ditambahkan!");
-	        redirect('page/supplier_tambahkayu');
+	        redirect('page/supplier');
         } else {
         	$this->session->set_flashdata('message', $this->upload->display_errors());
-			redirect('page/supplier_tambahkayu');
+			redirect('page/supplier');
         }
 	}
 	public function edit_kayu() {

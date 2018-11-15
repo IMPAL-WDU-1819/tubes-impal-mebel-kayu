@@ -7,6 +7,9 @@ class M_kayu extends CI_Model {
 		$this->db->where("id_supplier", $idsupplier);
 		return $this->db->get("kayu");
 	}
+	public function get_allkayu() {
+		return $this->db->get("kayu");
+	}
 	public function add_kayu($nama, $ukuran, $stok, $deskripsi, $harga, $image, $slug, $idsupplier) {
 		$data = array(
 			"nama_kayu" => $nama,

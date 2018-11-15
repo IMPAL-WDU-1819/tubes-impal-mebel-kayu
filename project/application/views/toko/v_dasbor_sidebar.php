@@ -6,9 +6,9 @@
         </a>
     </li>
     <li id="menu_tambahkayu">
-        <a href="#">
+        <a href="#tambahMebel" data-toggle="modal" data-target="#tambahMebel">
             <i class="ti-plus"></i>
-            <p>Tambah Kayu</p>
+            <p>Tambah Mebel</p>
         </a>
     </li>
     <li id="menu_profile">

@@ -6,7 +6,7 @@
         </a>
     </li>
     <li id="menu_tambahkayu">
-        <a href="<?php echo base_url()?>page/supplier_tambahkayu">
+        <a href="#tambahKayu" data-toggle="modal" data-target="#tambahKayu">
             <i class="ti-plus"></i>
             <p>Tambah Kayu</p>
         </a>
