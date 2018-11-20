@@ -63,7 +63,7 @@ class Supplier extends CI_Controller {
         $harga = $this->input->post("harga");
         $idkayu = $this->input->post("idkayu");
         $this->M_kayu->edit_kayu($nama, $ukuran, $stok, $deskripsi, $harga, $idkayu);
-        $this->session->set_flashdata('message', "Kayu berhasil diedit!");
+        $this->session->set_flashdata('message', "Kayu berhasil diperbarui!");
         redirect('page/supplier');
 	}
 }

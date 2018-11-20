@@ -3,9 +3,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_supplier extends CI_Model {
-	public function get_kayu() {
-		return $this->db->get("kayu");
-	}
 	public function get_user($user) {
 		$this->db->where("user_supplier", $user);
 		return $this->db->get("supplier")->result_array()[0];
@@ -35,5 +32,8 @@ class M_supplier extends CI_Model {
 	}
 	public function get_statistics($idsupplier) {
 		return $this->db->query("SELECT MONTH(tanggal) as bulan, DAY(tanggal) as hari, SUM(jumlah) as stok_terjual FROM jual_kayu WHERE id_supplier=$idsupplier GROUP BY MONTH(tanggal), DAY(tanggal)");
+	}
+	public function get_pendapatan($idsupplier) {
+		return $this->db->query("SELECT sum(jumlah*harga_kayu) as pendapatan FROM jual_kayu INNER JOIN kayu ON jual_kayu.id_kayu=kayu.id_kayu WHERE jual_kayu.id_supplier=$idsupplier")->result_array()[0];
 	}
 }

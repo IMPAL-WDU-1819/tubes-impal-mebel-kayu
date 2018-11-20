@@ -17,4 +17,7 @@ class M_mebel extends CI_Model {
 	public function delete_mebel($idmebel) {
 		$this->db->query("DELETE FROM mebel WHERE id_mebel = $idmebel");
 	}
+	public function get_all_mebel() {
+		return $this->db->query("SELECT * FROM mebel INNER JOIN kayu ON mebel.id_kayu = kayu.id_kayu");
+	}
 }

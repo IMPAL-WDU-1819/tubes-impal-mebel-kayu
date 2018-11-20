@@ -13,4 +13,9 @@ class M_login extends CI_Model {
 		$this->db->where("pass_toko", $password);
 		return $this->db->get("toko");
 	}
+	public function is_login_reseller($username, $password) {
+		$this->db->where("user_reseller", $username);
+		$this->db->where("pass_reseller", $password);
+		return $this->db->get("reseller");
+	}
 }

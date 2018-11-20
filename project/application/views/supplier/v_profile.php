@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url()?>assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url()?>assets/img/favicon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url()?>assets/img/favicon.ico">
+	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url()?>assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title><?php echo $title?></title>
@@ -23,6 +23,8 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="<?php echo base_url()?>assets/css/demo.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/jquery.fancybox.min.css" />
 
     <!--  Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
@@ -173,7 +175,7 @@
                                         <h5><?php echo $jumlah_kayu["COUNT(*)"]?><br /><small>Jumlah Kayu</small></h5>
                                     </div>
                                     <div class="col-md-6">
-                                        <h5>Rp. 5000000<br /><small>Pendapatan</small></h5>
+                                        <h5>Rp. <?php echo $pendapatan?><br /><small>Pendapatan</small></h5>
                                     </div>
                                 </div>
                             </div>
@@ -293,6 +295,8 @@
     <script src="<?php echo base_url()?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="<?php echo base_url()?>assets/js/bootstrap.min.js" type="text/javascript"></script>
 
+    <script src="<?php echo base_url()?>assets/js/jquery.fancybox.min.js"></script>
+
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="<?php echo base_url()?>assets/js/bootstrap-checkbox-radio.js"></script>
 
@@ -318,6 +322,16 @@
         });
         </script>
     <?php } ?>
+
+    <script type="text/javascript">
+        $('[data-fancybox="gallery"]').fancybox({
+            transitionEffect: "rotate",
+            animationEffect: "zoom-in-out"
+        });
+        $('[data-fancybox="tentang"]').fancybox({
+            animationEffect: "zoom-in-out"
+        });
+    </script>
 
     <script type="text/javascript">
         $("#menu_profile").addClass( "active" );

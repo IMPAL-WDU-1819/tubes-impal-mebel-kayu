@@ -11,6 +11,7 @@ class Page extends CI_Controller {
 		$this->load->model("M_supplier");
 		$this->load->model("M_kayu");
 		$this->load->model("M_toko");
+		$this->load->model("M_reseller");
 		$this->load->model("M_mebel");
 	}
 
@@ -19,9 +20,11 @@ class Page extends CI_Controller {
 			redirect('page/supplier');
 		} else if ($this->session->userdata('user_toko')) {
 			redirect('page/toko');
+		} else if ($this->session->userdata('user_reseller')) {
+			redirect('page/reseller');
 		} else {
 			redirect('page/login');
-		}		
+		}
 	}
 	public function login() {
 		$data = $this->data;
@@ -52,17 +55,11 @@ class Page extends CI_Controller {
 		$data["user"] = $this->M_supplier->get_user($user);
 		$idsupplier = $data["user"]["id_supplier"];
 		$data["jumlah_kayu"] = $this->M_supplier->get_jumlah_kayu($idsupplier);
+		$data["pendapatan"] = $this->M_supplier->get_pendapatan($idsupplier)["pendapatan"];
  		$this->load->view('supplier/v_profile', $data);
 	}
 	public function supplier_tentang_kami() {
-		if (!$this->session->userdata('user_supplier')) {
-			redirect('page/login');
-		}
-		$data = $this->data;
-		$data["title"] = "Tentang Kami";
-		$user = $this->session->userdata('user_supplier');
-		$data["user"] = $this->M_supplier->get_user($user);
-		$this->load->view('supplier/v_tentangkami', $data);
+		$this->load->view('supplier/v_tentangkami2');
 	}
 	public function toko() {
 		if (!$this->session->userdata('user_toko')) {
@@ -75,6 +72,21 @@ class Page extends CI_Controller {
 		$idtoko = $data["user"]["id_toko"];
 		$data["mebel"] = $this->M_mebel->get_mebel_by_idtoko($idtoko);
 		$data["kayu"] = $this->M_kayu->get_allkayu();
+		$data["statistik"] = $this->M_toko->get_statistics($idtoko);
+		$data["jual_mebel"] = $this->M_toko->get_jual_mebel($idtoko);
  		$this->load->view('toko/v_dasbor', $data);
+	}
+	public function reseller() {
+		if (!$this->session->userdata('user_reseller')) {
+			redirect('page/login');
+		}
+		$data = $this->data;
+		$data["title"] = "Dasbor";
+		$user = $this->session->userdata('user_reseller');
+		$data["user"] = $this->M_reseller->get_user($user);
+		$idreseller = $data["user"]["id_reseller"];
+		$data["jual_mebel"] = $this->M_reseller->get_jual_mebel($idreseller);
+		$data["mebel"] = $this->M_mebel->get_all_mebel();
+ 		$this->load->view('reseller/v_dasbor', $data);
 	}
 }

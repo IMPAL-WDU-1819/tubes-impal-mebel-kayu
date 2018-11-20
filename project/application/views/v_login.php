@@ -61,7 +61,6 @@
 	            <div class="modal-body">
 	            	Username : user<br>
 	            	Password : user<br><br>
-	            	<div class="alert alert-danger">*Note : Demo untuk Reseller masih dalam perbaikan</div>
 	            </div>
 	            <div class="modal-footer">
 	                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

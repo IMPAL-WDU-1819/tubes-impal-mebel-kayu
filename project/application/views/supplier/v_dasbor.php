@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url()?>assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url()?>assets/img/favicon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url()?>assets/img/favicon.ico">
+	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url()?>assets/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/datatables.min.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/fontawesome-all.css">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -32,11 +32,15 @@
     <link href="<?php echo base_url()?>assets/css/themify-icons.css" rel="stylesheet">
     <link href="<?php echo base_url()?>assets/css/graph.css" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/jquery.fancybox.min.css" />
+
+
     <style type="text/css">
     .table .square {
         position: relative;
-        width: 400px;     
-        height: 140px;
+        width: 300px;     
+        height: 100px;
         overflow: hidden;
         margin:5px 15px 5px 5px;
     }
@@ -85,6 +89,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
+                        <!-- Statistik Penjualan Kayu -->
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Statistik Penjualan Kayu per Hari</h4>
@@ -99,12 +104,13 @@
                                     } ?>
                                     <?php foreach($statistik->result_array() as $statistik_arr) { ?>
                                         <li>
-                                            <span style="height:<?php echo $statistik_arr["stok_terjual"]/$max*100?>%" title="<?php echo $statistik_arr["hari"]?>-<?php echo $statistik_arr["bulan"]?> (<?php echo $statistik_arr["stok_terjual"]?> Kayu)"></span>
+                                            <span style="height:<?php echo $statistik_arr["stok_terjual"]/$max*100?>%" title="<?php echo $statistik_arr["hari"]?>-<?php echo $statistik_arr["bulan"]?>-2018 (<?php echo $statistik_arr["stok_terjual"]?> Kayu)"></span>
                                         </li>
                                     <?php } ?>
                                 </ul>
                             </div>
                         </div>
+                        <!-- Data Penjualan Kayu -->
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Data Penjualan Kayu</h4>
@@ -134,10 +140,10 @@
                                 </table>
                             </div>
                         </div>
+                        <!-- Daftar Kayu -->
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Daftar Kayu</h4>
-                                <p class="category">ID Supplier: <?php echo $user["id_supplier"]?></p>
                             </div>
                             <div class="content">
                                 <table id="table" class="table daftarkayu" style="width:100%;">
@@ -156,7 +162,7 @@
                                         <?php foreach($kayu->result_array() as $kayu_arr) { ?>
                                             <tr>
                                                 <td style="width:340px;">
-                                                    <div class="square"><img src="<?php echo base_url() ?>assets/upload/<?php echo $kayu_arr["image_kayu"]?>"></div>
+                                                    <div class="square"><a data-caption="<?php echo $kayu_arr["nama_kayu"]?>" data-fancybox="gallery" href="<?php echo base_url() ?>assets/upload/<?php echo $kayu_arr["image_kayu"]?>"><img src="<?php echo base_url() ?>assets/upload/<?php echo $kayu_arr["image_kayu"]?>"></a></div>
                                                 </td>
                                                 <td style="vertical-align : middle;"><?php echo $kayu_arr["nama_kayu"]?></td>
                                                 <td style="vertical-align : middle;"><?php echo $kayu_arr["ukuran_kayu"]?></td>
@@ -195,11 +201,11 @@
                 </div>
                 <form action="<?php echo base_url()?>supplier/edit_kayu" method="post">
                     <div class="modal-body">
-                        <div class="row">
+                        <div class="row" style="display: none;">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>ID Kayu</label>
-                                    <input type="number" class="form-control border-input" placeholder="ID Supplier" name="idkayu" value="<?php echo $kayu_arr["id_kayu"]?>">
+                                    <input type="number" class="form-control border-input" placeholder="ID Kayu" name="idkayu" value="<?php echo $kayu_arr["id_kayu"]?>">
                                 </div>
                             </div>
                         </div>
@@ -361,6 +367,8 @@
     <script src="<?php echo base_url()?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 	<script src="<?php echo base_url()?>assets/js/bootstrap.min.js" type="text/javascript"></script>
 
+    <script src="<?php echo base_url()?>assets/js/jquery.fancybox.min.js"></script>
+
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="<?php echo base_url()?>assets/js/bootstrap-checkbox-radio.js"></script>
 
@@ -390,9 +398,23 @@
 
     <script type="text/javascript">
         $(document).ready( function () {
-            $('.daftarkayu').DataTable();
-            $('.datapenjualan').DataTable();
+            $('.daftarkayu').DataTable( {
+                responsive:true
+            });
+            $('.datapenjualan').DataTable({
+                responsive:true
+            });
         } );
+    </script>
+
+    <script type="text/javascript">
+        $('[data-fancybox="gallery"]').fancybox({
+            transitionEffect: "rotate",
+            animationEffect: "zoom-in-out"
+        });
+        $('[data-fancybox="tentang"]').fancybox({
+            animationEffect: "zoom-in-out"
+        });
     </script>
 
     <script type="text/javascript">

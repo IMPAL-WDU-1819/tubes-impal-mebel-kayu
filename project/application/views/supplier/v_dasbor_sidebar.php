@@ -18,7 +18,7 @@
         </a>
     </li>
     <li id="menu_about">
-        <a href="<?php echo base_url()?>page/supplier_tentang_kami">
+        <a data-fancybox="tentang" data-type="iframe" data-src="<?php echo base_url()?>page/supplier_tentang_kami" href="javascript:;">
             <i class="ti-heart"></i>
             <p>Tentang Kami</p>
         </a>

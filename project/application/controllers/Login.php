@@ -16,7 +16,9 @@ class Login extends CI_Controller {
  			$result = $this->M_login->is_login_supplier($username, $password)->row_array();
  		} else if ($login_as == "toko") {
  			$result = $this->M_login->is_login_toko($username, $password)->row_array();
- 		}
+ 		} else if ($login_as == "reseller") {
+ 			$result = $this->M_login->is_login_reseller($username, $password)->row_array();
+ 		} 
 
  		if ($result > 0 && $login_as == "supplier") {
  			$this->session->set_userdata('user_supplier', $username);
@@ -24,6 +26,9 @@ class Login extends CI_Controller {
  		} else if ($result > 0 && $login_as == "toko") {
  			$this->session->set_userdata('user_toko', $username);
  			redirect('page/toko');
+ 		} else if ($result > 0 && $login_as == "reseller") {
+ 			$this->session->set_userdata('user_reseller', $username);
+ 			redirect('page/reseller');
  		} else {
  			$this->session->set_flashdata('message', 'Login gagal!');
  			redirect('page/login');
