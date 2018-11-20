@@ -10,5 +10,11 @@ Team
 3. Ahmad Rizky Prayogi
 4. Fetra Moira Fiermansyah
 
-Project: http://adityaeka.com/impal
+Progress
+--------
+- Supplier 100%
+- Toko 80%
+- Reseller 80%
+
+Demo: http://adityaeka.com/impal
 ----------------------------------
