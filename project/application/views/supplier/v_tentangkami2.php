@@ -30,7 +30,7 @@
     <link href="<?php echo base_url()?>assets/css/themify-icons.css" rel="stylesheet">
     <style type="text/css">
     body {
-        padding: 30px;
+        padding: 30px 30px 0px 30px;
     }
     .profile img {
         border-radius: 50%;
@@ -50,7 +50,7 @@
     <div style="font-size: 40px; margin-bottom: 40px; width: 100%;"><center>Tentang Kami!</center></div>
     <div class="profile">
         <div class="row" style="margin:0px;">
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-bottom: 30px;">
                 <center>
                     <img style="width: 250px; border-radius: 50%;" src="<?php echo base_url() ?>assets/img/aditya.jpg"><br><br>
                     <span>
@@ -60,33 +60,33 @@
                     </span>
                 </center>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-bottom: 30px;">
                 <center>
                     <img style="width: 250px; border-radius: 50%;" class="rounded-circle" src="<?php echo base_url() ?>assets/img/ahmad.jpg"><br><br>
                     <span>
                         AHMAD RIZKY PRAYOGI<br>
                         IF-40-11<br>
-                        130116XXXX
+                        1301164309
                     </span>
                 </center>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-bottom: 30px;">
                 <center>
                     <img style="width: 250px; border-radius: 50%;" class="rounded-circle" src="<?php echo base_url() ?>assets/img/johan.jpg"><br><br>
                     <span>
                         JOHAN ANTONIUS SALIM<br>
                         IF-40-11<br>
-                        130116XXXX
+                        1301164150
                     </span>
                 </center>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-bottom: 30px;">
                 <center>
                     <img style="width: 250px; border-radius: 50%;" class="rounded-circle" src="<?php echo base_url() ?>assets/img/fetra.jpg"><br><br>
                     <span>
                         FETRA MOIRA F.<br>
                         IF-40-11<br>
-                        130116XXXX
+                        1301164101
                     </span>
                 </center>
             </div>

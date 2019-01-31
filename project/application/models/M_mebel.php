@@ -20,4 +20,18 @@ class M_mebel extends CI_Model {
 	public function get_all_mebel() {
 		return $this->db->query("SELECT * FROM mebel INNER JOIN kayu ON mebel.id_kayu = kayu.id_kayu");
 	}
+	public function edit_mebel($nama, $ukuran, $stok, $deskripsi, $harga, $idmebel) {
+		$data = array(
+			"nama_mebel" => $nama,
+			"ukuran_mebel" => $ukuran,
+			"stok_mebel" => $stok,
+			"deskripsi_mebel" => $deskripsi,
+			"harga_mebel" => $harga
+		);
+		$this->db->where("id_mebel", $idmebel);
+		$this->db->update("mebel", $data);
+	}
+	public function cek_mebel($idmebel){
+		return $this->db->query("SELECT stok_mebel from mebel where mebel.id_mebel = $idmebel")->result_array()[0];
+	}
 }

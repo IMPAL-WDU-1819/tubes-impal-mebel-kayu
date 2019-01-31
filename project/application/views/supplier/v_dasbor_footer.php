@@ -3,7 +3,7 @@
         <nav class="pull-left">
             <ul>
                 <li>
-                    <a data-fancybox="tentang" data-type="iframe" data-src="<?php echo base_url()?>page/supplier_tentang_kami" href="javascript:;">
+                    <a data-fancybox="tentang2" data-type="iframe" data-src="<?php echo base_url()?>page/supplier_tentang_kami" href="javascript:;">
                         Tentang Kami
                     </a>
                 </li>

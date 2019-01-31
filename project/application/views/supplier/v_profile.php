@@ -318,7 +318,7 @@
     <?php if ($this->session->flashdata("message")) { ?>
         <script type="text/javascript">
         $(window).on('load',function(){
-            $('.modal').modal('show');
+            $('#modal').modal('show');
         });
         </script>
     <?php } ?>

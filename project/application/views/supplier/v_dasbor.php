@@ -37,6 +37,10 @@
 
 
     <style type="text/css">
+    .table {
+        width: 100%; 
+        word-break: break-all; 
+    }
     .table .square {
         position: relative;
         width: 300px;     
@@ -57,6 +61,11 @@
     .table img.landscape {
         height: 100%;
         width: auto;
+    }
+    @media only screen and (max-width: 1400px) {
+        .table .square {
+            width: 200px;
+        }
     }
     </style>
 </head>
@@ -146,7 +155,7 @@
                                 <h4 class="title">Daftar Kayu</h4>
                             </div>
                             <div class="content">
-                                <table id="table" class="table daftarkayu" style="width:100%;">
+                                <table id="table" class="table daftarkayu" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Gambar</th>
@@ -161,7 +170,7 @@
                                     <tbody>
                                         <?php foreach($kayu->result_array() as $kayu_arr) { ?>
                                             <tr>
-                                                <td style="width:340px;">
+                                                <td>
                                                     <div class="square"><a data-caption="<?php echo $kayu_arr["nama_kayu"]?>" data-fancybox="gallery" href="<?php echo base_url() ?>assets/upload/<?php echo $kayu_arr["image_kayu"]?>"><img src="<?php echo base_url() ?>assets/upload/<?php echo $kayu_arr["image_kayu"]?>"></a></div>
                                                 </td>
                                                 <td style="vertical-align : middle;"><?php echo $kayu_arr["nama_kayu"]?></td>
@@ -170,7 +179,7 @@
                                                 <td style="vertical-align : middle;"><?php echo $kayu_arr["stok_kayu"]?></td>
                                                 <td style="vertical-align : middle;">Rp. <?php echo $kayu_arr["harga_kayu"]?></td>
                                                 <td style="vertical-align : middle;">
-                                                    <button type="button" class="btn btn-fill btn-warning btn-lg" data-toggle="modal" data-target="#edit_<?php echo $kayu_arr["id_kayu"]?>">Edit</button>
+                                                    <button type="button" class="btn btn-fill btn-warning btn-md" data-toggle="modal" data-target="#edit_<?php echo $kayu_arr["id_kayu"]?>">Edit</button>
                                                 </td>
                                             </tr>
                                         <?php } ?>

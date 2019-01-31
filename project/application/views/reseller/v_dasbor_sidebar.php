@@ -6,13 +6,13 @@
         </a>
     </li>
     <li id="menu_profile">
-        <a href="#">
+        <a href="<?php echo base_url()?>page/reseller_profile">
             <i class="ti-user"></i>
             <p>Profil</p>
         </a>
     </li>
     <li id="menu_about">
-        <a href="#">
+        <a data-fancybox="tentang" data-type="iframe" data-src="<?php echo base_url()?>page/supplier_tentang_kami" href="javascript:;">
             <i class="ti-heart"></i>
             <p>Tentang Kami</p>
         </a>

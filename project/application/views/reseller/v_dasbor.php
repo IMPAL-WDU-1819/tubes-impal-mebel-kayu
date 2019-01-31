@@ -34,6 +34,10 @@
     <link href="<?php echo base_url()?>assets/css/themify-icons.css" rel="stylesheet">
 
     <style type="text/css">
+    .table {
+        width: 100%; 
+        word-break: break-all;
+    }
     .table .square {
         position: relative;
         width: 300px;     
@@ -54,6 +58,11 @@
     .table img.landscape {
         height: 100%;
         width: auto;
+    }
+    @media only screen and (max-width: 1400px) {
+        .table .square {
+            width: 200px;
+        }
     }
     </style>
 
@@ -100,29 +109,29 @@
                                             <th>Nama</th>
                                             <th>Ukuran</th>
                                             <th>Deskripsi</th>
-                                            <th>Nama Kayu</th>
                                             <th>Stok</th>
                                             <th>Harga</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach($mebel->result_array() as $mebel_arr) { ?>
+                                        <?php foreach($mebel->result_array() as $mebel_arr) { 
+                                            if ($mebel_arr['stok_mebel']>0) {?>
                                             <tr>
-                                                <td style="width:340px;">
+                                                <td>
                                                     <div class="square"><a data-caption="<?php echo $mebel_arr["nama_mebel"]?>" data-fancybox="gallery" href="<?php echo base_url() ?>assets/upload/<?php echo $mebel_arr["image_mebel"]?>"><img src="<?php echo base_url() ?>assets/upload/<?php echo $mebel_arr["image_mebel"]?>"></a></div>
                                                 </td>
                                                 <td style="vertical-align : middle;"><?php echo $mebel_arr["nama_mebel"]?></td>
                                                 <td style="vertical-align : middle;"><?php echo $mebel_arr["ukuran_mebel"]?></td>
                                                 <td style="vertical-align : middle;"><?php echo $mebel_arr["deskripsi_mebel"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["nama_kayu"]?></td>
                                                 <td style="vertical-align : middle;"><?php echo $mebel_arr["stok_mebel"]?></td>
                                                 <td style="vertical-align : middle;">Rp. <?php echo $mebel_arr["harga_mebel"]?></td>
                                                 <td style="vertical-align : middle;">
-                                                    <button type="button" class="btn btn-fill btn-warning btn-lg" data-toggle="modal" data-target="#edit_<?php echo $mebel_arr["id_mebel"]?>">Beli</button>
+                                                    <button type="button" class="btn btn-fill btn-warning btn-md" data-toggle="modal" data-target="#edit_<?php echo $mebel_arr["id_mebel"]?>">Beli</button>
                                                 </td>
                                             </tr>
-                                        <?php } ?>
+                                        <?php 
+                                    } } ?>
                                     </tbody>
                                 </table>
                             </div>

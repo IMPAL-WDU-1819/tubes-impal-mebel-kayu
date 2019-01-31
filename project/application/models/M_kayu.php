@@ -34,4 +34,7 @@ class M_kayu extends CI_Model {
 		$this->db->where("id_kayu", $idkayu);
 		$this->db->update("kayu", $data);
 	}
+	public function cek_stok_kayu($idkayu){
+		return $this->db->query("SELECT stok_kayu from kayu where id_kayu = $idkayu")->result_array()[0];
+	}
 }

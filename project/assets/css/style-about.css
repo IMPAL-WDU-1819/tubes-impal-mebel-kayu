@@ -1,0 +1,153 @@
+body {
+	background: url(../img/background/bg.png);
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+.container {
+	padding: 0px;
+	background: none;
+}
+.navbar {
+	box-shadow: 0px 0px 15px -10px;
+	background: #333 !important;
+	padding: 0px;
+}
+.nav-link {
+	padding: 10px 20px !important;
+}
+.header {
+	padding: 70px 30px 35px 30px;
+}
+.main {
+	padding: 20px;
+	background: white;
+	margin: 0px auto 30px auto;
+	box-shadow: 0px 0px 15px -10px;
+}
+.main-2 {
+	padding: 20px;
+	background: white;
+	margin: 0px auto 30px auto;
+	box-shadow: 0px 0px 15px -10px;
+}
+.owl-nav {
+	display: none;
+}
+.footer {
+	background: #333;
+	color: white;
+	box-shadow: 0px 0px 15px -10px;
+	padding: 2px 5px 8px 5px;
+}
+.product {
+	margin-top: 30px;
+}
+.sosmed {
+	width: 50px;
+	margin: 5px;
+}
+iframe {
+	display: none;
+}
+.btn-primary {
+	background-color: purple;
+	border-color: purple;
+}
+.btn-primary:hover {
+	background-color: #333;
+	border-style: #333;
+}
+.owl-dots {
+	display: none;
+}
+.kolom {
+	padding: 0px;
+}
+.card {
+	margin-top: 20px;
+}
+a {
+	color: #333;
+}
+a:hover {
+	color: #333;
+	text-decoration: none;
+}
+ul {
+	list-style-type: none;
+}
+.item img {
+	border-radius: 5px;
+	width: 250px !important;
+	margin: 0px auto;
+}
+
+/* NAVIGASI ATAS */
+.top-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: none;
+    width: 100%;
+}
+.top-nav li {
+    float: left;
+}
+.top-nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    transition: all 0.15s;
+}
+.top-nav li a:hover:not(.active) {
+    background-color: #111;
+}
+.top-nav .active {
+    background-color: purple;
+}
+
+/* VERTIKAL NAVIGASI */
+.vertical-nav ul {
+	padding:0; 
+	margin: 0; 
+}
+.vertical-nav ul li {
+	transition:all 0.15s; 
+	clear: both; 
+	display: inline; 
+	float: right; 
+	margin: 0 0 20px 0; 
+	padding: 0;
+}
+.vertical-nav ul li:hover {
+	transform: translateX(-5px);
+}
+.vertical-nav ul li a {
+	background: #333;
+	color: #FFFFFF;
+	display: block;
+	padding: 10px 20px 13px 20px;
+	border-radius:5px;
+}
+.vertical-nav ul li a:hover {
+	background: purple;
+	transition:all 0.15s;
+}
+
+/* RESPONSIF */
+
+@media (max-width: 1200px) {
+	.kolom-tengah {
+		visibility: hidden;
+	}
+}
+@media (max-width: 1000px) {
+	.kolom-kanan {
+		visibility: hidden;
+	}
+	.res {
+		display: none;
+	}
+}

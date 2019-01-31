@@ -57,6 +57,11 @@
         height: 100%;
         width: auto;
     }
+    @media only screen and (max-width: 1400px) {
+        .table .square {
+            width: 200px;
+        }
+    }
     </style>
 
 </head>
@@ -154,7 +159,6 @@
                                             <th>Nama</th>
                                             <th>Ukuran</th>
                                             <th>Deskripsi</th>
-                                            <th>Nama Kayu</th>
                                             <th>Stok</th>
                                             <th>Harga</th>
                                             <th>Aksi</th>
@@ -163,17 +167,16 @@
                                     <tbody>
                                         <?php foreach($mebel->result_array() as $mebel_arr) { ?>
                                             <tr>
-                                                <td style="width:340px;">
+                                                <td>
                                                     <div class="square"><a data-caption="<?php echo $mebel_arr["nama_mebel"]?>" data-fancybox="gallery" href="<?php echo base_url() ?>assets/upload/<?php echo $mebel_arr["image_mebel"]?>"><img src="<?php echo base_url() ?>assets/upload/<?php echo $mebel_arr["image_mebel"]?>"></a></div>
                                                 </td>
                                                 <td style="vertical-align : middle;"><?php echo $mebel_arr["nama_mebel"]?></td>
                                                 <td style="vertical-align : middle;"><?php echo $mebel_arr["ukuran_mebel"]?></td>
                                                 <td style="vertical-align : middle;"><?php echo $mebel_arr["deskripsi_mebel"]?></td>
-                                                <td style="vertical-align : middle;"><?php echo $mebel_arr["nama_kayu"]?></td>
                                                 <td style="vertical-align : middle;"><?php echo $mebel_arr["stok_mebel"]?></td>
                                                 <td style="vertical-align : middle;">Rp. <?php echo $mebel_arr["harga_mebel"]?></td>
                                                 <td style="vertical-align : middle;">
-                                                    <button type="button" class="btn btn-fill btn-warning btn-lg">Edit</button>
+                                                    <button type="button" class="btn btn-fill btn-warning btn-md" data-toggle="modal" data-target="#edit_<?php echo $mebel_arr["id_mebel"]?>">Edit</button>
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -191,31 +194,31 @@
 </div>
 
 <!-- Edit Mebel -->
-<?php foreach($kayu->result_array() as $kayu_arr) { ?>
-    <div class="modal fade" id="edit_<?php echo $kayu_arr["id_kayu"]?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<?php foreach($mebel->result_array() as $mebel_arr) { ?>
+    <div class="modal fade" id="edit_<?php echo $mebel_arr["id_mebel"]?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Kayu</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Mebel</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?php echo base_url()?>supplier/edit_kayu" method="post">
+                <form action="<?php echo base_url()?>toko/edit_mebel" method="post">
                     <div class="modal-body">
                         <div class="row" style="display: none;">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>ID Kayu</label>
-                                    <input type="number" class="form-control border-input" placeholder="ID Kayu" name="idkayu" value="<?php echo $kayu_arr["id_kayu"]?>">
+                                    <label>ID Mebel</label>
+                                    <input type="number" class="form-control border-input" placeholder="ID Mebel" name="idmebel" value="<?php echo $mebel_arr["id_mebel"]?>">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Nama Kayu</label>
-                                    <input type="text" class="form-control border-input" placeholder="Nama Kayu" name="nama" value="<?php echo $kayu_arr["nama_kayu"]?>">
+                                    <label>Nama Mebel</label>
+                                    <input type="text" class="form-control border-input" placeholder="Nama Mebel" name="nama" value="<?php echo $mebel_arr["nama_mebel"]?>">
                                 </div>
                             </div>
                         </div>
@@ -223,14 +226,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Ukuran Kayu</label>
-                                    <input required type="number" class="form-control border-input" name="ukuran" placeholder="Ukuran Kayu" value="<?php echo $kayu_arr["ukuran_kayu"]?>">
+                                    <label>Ukuran Mebel</label>
+                                    <input required type="number" class="form-control border-input" name="ukuran" placeholder="Ukuran Mebel" value="<?php echo $mebel_arr["ukuran_mebel"]?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Stok Kayu</label>
-                                    <input required type="number" class="form-control border-input" name="stok" placeholder="Stok Kayu" value="<?php echo $kayu_arr["stok_kayu"]?>">
+                                    <label>Stok Mebel</label>
+                                    <input required type="number" class="form-control border-input" name="stok" placeholder="Stok Mebel" value="<?php echo $mebel_arr["stok_mebel"]?>">
                                 </div>
                             </div>
                         </div>
@@ -238,8 +241,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Deskripsi Kayu</label>
-                                    <textarea required rows="5" class="form-control border-input" name="deskripsi" placeholder="Deskripsi Kayu"><?php echo $kayu_arr["deskripsi_kayu"]?></textarea>
+                                    <label>Deskripsi Mebel</label>
+                                    <textarea required rows="5" class="form-control border-input" name="deskripsi" placeholder="Deskripsi Mebel"><?php echo $mebel_arr["deskripsi_mebel"]?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -247,8 +250,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Harga Kayu</label>
-                                    <input type="number" class="form-control border-input" placeholder="Harga Kayu" name="harga" value="<?php echo $kayu_arr["harga_kayu"]?>">
+                                    <label>Harga Mebel</label>
+                                    <input type="number" class="form-control border-input" placeholder="Harga Kayu" name="harga" value="<?php echo $mebel_arr["harga_mebel"]?>">
                                 </div>
                             </div>
                         </div>

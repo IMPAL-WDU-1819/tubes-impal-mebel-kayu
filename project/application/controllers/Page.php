@@ -76,6 +76,7 @@ class Page extends CI_Controller {
 		$data["jual_mebel"] = $this->M_toko->get_jual_mebel($idtoko);
  		$this->load->view('toko/v_dasbor', $data);
 	}
+	
 	public function reseller() {
 		if (!$this->session->userdata('user_reseller')) {
 			redirect('page/login');
@@ -88,5 +89,34 @@ class Page extends CI_Controller {
 		$data["jual_mebel"] = $this->M_reseller->get_jual_mebel($idreseller);
 		$data["mebel"] = $this->M_mebel->get_all_mebel();
  		$this->load->view('reseller/v_dasbor', $data);
+	}
+	public function toko_profile() {
+		if (!$this->session->userdata('user_toko')) {
+			redirect('page/login');
+		}
+		
+		$data = $this->data;
+		$data["title"] = "Profil Toko";
+		$user = $this->session->userdata('user_toko');
+		$data["user"] = $this->M_toko->get_user($user);
+		$idtoko = $data["user"]["id_toko"];
+		$data["jumlah_kayu"] = $this->M_toko->get_jumlah_mebel($idtoko);
+		$data["pendapatan"] = $this->M_toko->get_pendapatan($idtoko)["pendapatan"];
+		$data["kayu"] = $this->M_kayu->get_allkayu();
+ 		$this->load->view('toko/v_profile', $data);
+	}
+	public function reseller_profile() {
+		if (!$this->session->userdata('user_reseller')) {
+			redirect('page/login');
+		}
+		
+		$data = $this->data;
+		$data["title"] = "Profil Reseller";
+		$user = $this->session->userdata('user_reseller');
+		$data["user"] = $this->M_reseller->get_user($user);
+		$idreseller = $data["user"]["id_reseller"];
+		$data["jual_mebel"] = $this->M_reseller->get_jual_mebel($idreseller);
+		$data["mebel"] = $this->M_mebel->get_all_mebel();
+ 		$this->load->view('reseller/v_profile', $data);
 	}
 }
